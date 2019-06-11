@@ -37,7 +37,7 @@ namespace TriviaBot
             Client.Ready += Client_Ready;
             Client.Log += Client_Log;
 
-            await Client.LoginAsync(TokenType.Bot, "NTg1Njc3ODExMTM0NjI3ODQw.XPtcNg.Ivf_ne32H_Q6NN8Ws4U6s7KGsYk");
+            await Client.LoginAsync(TokenType.Bot, "faketoken");
             await Client.StartAsync();
 
             await Task.Delay(-1);
