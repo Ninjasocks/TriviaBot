@@ -1,0 +1,11 @@
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\bin\Debug\netcoreapp2.1\TriviaBot.deps.json
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\bin\Debug\netcoreapp2.1\TriviaBot.runtimeconfig.json
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\bin\Debug\netcoreapp2.1\TriviaBot.runtimeconfig.dev.json
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\bin\Debug\netcoreapp2.1\TriviaBot.dll
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\obj\Debug\netcoreapp2.1\TriviaBot.csprojAssemblyReference.cache
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\obj\Debug\netcoreapp2.1\TriviaBot.csproj.CoreCompileInputs.cache
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\obj\Debug\netcoreapp2.1\TriviaBot.AssemblyInfoInputs.cache
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\obj\Debug\netcoreapp2.1\TriviaBot.AssemblyInfo.cs
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\bin\Debug\netcoreapp2.1\TriviaBot.pdb
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\obj\Debug\netcoreapp2.1\TriviaBot.dll
+C:\Users\Ninjasocks\Desktop\triviabot\TriviaBot\TriviaBot\obj\Debug\netcoreapp2.1\TriviaBot.pdb

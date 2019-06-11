@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Ninjasocks\\Desktop\\triviabot\\TriviaBot\\TriviaBot\\TriviaBot.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Ninjasocks\\Desktop\\triviabot\\TriviaBot\\TriviaBot\\TriviaBot.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ninjasocks\\Desktop\\triviabot\\TriviaBot\\TriviaBot\\TriviaBot.csproj",
+        "projectName": "TriviaBot",
+        "projectPath": "C:\\Users\\Ninjasocks\\Desktop\\triviabot\\TriviaBot\\TriviaBot\\TriviaBot.csproj",
+        "packagesPath": "C:\\Users\\Ninjasocks\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ninjasocks\\Desktop\\triviabot\\TriviaBot\\TriviaBot\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Ninjasocks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Discord.Addons.Interactive": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Discord.Net": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Discord.Net.Commands": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
