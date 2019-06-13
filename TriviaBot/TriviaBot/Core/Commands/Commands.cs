@@ -1,4 +1,4 @@
-﻿using Discord;
+using Discord;
 using Discord.Commands;
 using System;
 using System.IO;
@@ -140,6 +140,7 @@ namespace TriviaBot.Core.Commands
             {
                 String[] questions = File.ReadAllLines(questionFile);
                 String[] answers = File.ReadAllLines(answerFile);
+                String[] answeredQuestions = new String[questions.Length];
 
                 await JoinTrivia();
 
@@ -152,7 +153,7 @@ namespace TriviaBot.Core.Commands
                 {
                     Random rand = new Random();
                     int pos = rand.Next(0, questions.Length);
-                    int prevPos = pos;
+                    answeredQuestions[pos] = questions[pos];
 
                     bool stopGame = false;
 
@@ -177,11 +178,11 @@ namespace TriviaBot.Core.Commands
 
                         var questionMessage = await Context.Channel.SendMessageAsync("", false, embed.Build());
                         await Task.Delay(10000, source.Token);
-                        var nextMessages = await Context.Channel.GetMessagesAsync(questionMessage.Id, Direction.After, 20).FlattenAsync();
+                        var nextMessages = await Context.Channel.GetMessagesAsync(questionMessage.Id, Direction.After, 100).FlattenAsync();
 
                         foreach (var guess in nextMessages)
                         {
-                            int index = 0;
+                            int index = 0; //reset index
 
                             Console.WriteLine(($"{guess.Author} posted '{guess.Content}' at {guess.CreatedAt}."));
 
@@ -191,8 +192,10 @@ namespace TriviaBot.Core.Commands
                                 break;
                             }
 
-                            if (guess.Content.ToLower().Equals(answers[pos].ToLower()) && userArray.Contains(guess.Author.Username))
+                            else if (guess.Content.ToLower().Equals(answers[pos].ToLower()) && userArray.Contains(guess.Author.Username))
                             {
+                                Console.WriteLine(($"{guess.Author} guessed correctly"));
+
                                 for (int j = 0; j < userArray.Length; j++) //find where they are in userArray
                                 {
                                     if (userArray[j] != guess.Author.Username)
@@ -202,17 +205,25 @@ namespace TriviaBot.Core.Commands
 
                                     else
                                     {
-                                        //Console.WriteLine(index);
-                                        index = 0;
+                                        Console.WriteLine(index);
+                                        //index = 0;
                                         break;
                                     }
                                 }
 
                                 if (!hasAnswered[index]) //if user at index has not provided an answer yet and is correct, increase their score 
                                 {
-                                    pointCounter[index]++;
-                                    hasAnswered[index] = true;
+                                    pointCounter[index]++; //give a point
+                                    hasAnswered[index] = true; //prevents them from gaining multiple points by spamming the correct answer during a question
                                 }
+
+                                Console.WriteLine(pointCounter[index]);
+                                Console.WriteLine(hasAnswered[index]);
+                            }
+
+                            else
+                            {
+                                ; //do nothing
                             }
                         }
 
@@ -226,9 +237,17 @@ namespace TriviaBot.Core.Commands
                             }
                         }
 
-                        embed2.WithTitle("The correct answer was " + answers[pos]);
+                        embed2.WithTitle("The correct answer is " + answers[pos]);
                         embed2.WithDescription("People who guessed correctly: \n" + correctAnswers);
-                        embed2.WithFooter("Next Question!");
+                        if((i+1) == questions.Length)
+                        {
+                            embed2.WithFooter("Final Question!");
+                        }
+
+                        else
+                        {
+                            embed2.WithFooter("Next Question!");
+                        }
 
                         await Context.Channel.SendMessageAsync("", false, embed2.Build());
 
@@ -237,11 +256,12 @@ namespace TriviaBot.Core.Commands
                             hasAnswered[l] = false;
                         }
 
-                        while (prevPos == pos)
+                        while (answeredQuestions[pos] == questions[pos]) //prevent question repetition
                         {
                             pos = rand.Next(0, questions.Length);
                         }
-                        prevPos = pos;
+
+                        answeredQuestions[pos] = questions[pos];
                     }
 
 
@@ -288,15 +308,15 @@ namespace TriviaBot.Core.Commands
                     userArray[i] = user.Username;
                     pointCounter[i] = 0;
                     hasAnswered[i] = false;
-                    Console.WriteLine(userArray[i]);
+                    Console.WriteLine(userArray[i] + " joined trivia");
                     i++;
                 }
 
             }
 
             await Context.Channel.SendMessageAsync("Trivia will begin in 10 seconds! You will have 10 seconds to guess the answer for each question. Get ready!");
-            await Task.Delay(3000, source.Token);
-            //await Task.Delay(10000, source.Token);
+            //await Task.Delay(3000, source.Token);
+            await Task.Delay(10000, source.Token);
         }
 
         [Command("mal"), Alias("MAL", "myanimelist", "search"), Summary("MyAnimeList search")]
