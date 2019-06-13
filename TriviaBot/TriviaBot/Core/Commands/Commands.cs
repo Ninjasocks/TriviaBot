@@ -340,6 +340,8 @@ namespace TriviaBot.Core.Commands
                         temp += words[i] + "%20";
                     }
 
+                    temp = temp.Remove(temp.Length - 3);
+
                     await Context.Channel.SendMessageAsync("MAL Search: \n https://myanimelist.net/search/all?q=" + temp);
                 }
 
